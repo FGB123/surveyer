@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+        body {
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+        #dg {
+            margin: auto;
+            border-style: solid;
+            border-color: gray;
+            border-width: 2px;
+            border-radius: 5px;
+            width:120px;
+            height: 40px;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+        }
+        .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        .switch input[type="checkbox"] {
+        display: none;
+        }
+
+        .switch label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 34px;
+        background-color: #ff00d9;
+        border-radius: 17px;
+        cursor: pointer;
+        }
+
+        .switch label:before {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: white;
+        top: 4px;
+        left: 4px;
+        transition: all 0.3s ease;
+        }
+
+        .switch input[type="checkbox"]:checked + label {
+        background-color: #2196F3;
+        }
+
+        .switch input[type="checkbox"]:checked + label:before {
+        transform: translateX(26px);
+        }
+
+        .switch label:after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0);
+        top: 9px;
+        left: 9px;
+        transition: all 0.3s ease;
+        }
+
+        .switch input[type="checkbox"]:checked + label:after {
+        background-color: #ffffff00;
+        }
+
+        .slider {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        }
+
+        .slider-range {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 65%;
+        height: 10px;
+        background: #ccc;
+        outline: none;
+        border-radius: 5px;
+        margin: auto;
+        padding: 0;
+        position: relative;
+        }
+
+        .slider-range::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        background: #2196F3;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        }
+
+        .slider-range::-moz-range-thumb {
+        width: 20px;
+        height: 20px;
+        background: #2196F3;
+        border-radius: 50%;
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        }
+
+        .slider-value {
+        display: inline-block;
+        width: 50px;
+        text-align: center;
+        margin-left: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #2196F3;
+        }
+
+        .switch-kdk {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        }
+
+        .switch-kdk input[type="checkbox"] {
+        display: none;
+        }
+
+        .switch-kdk label {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 60px;
+        height: 34px;
+        background-color: #f32121;
+        border-radius: 17px;
+        cursor: pointer;
+        }
+
+        .switch-kdk label:before {
+        content: "";
+        position: absolute;
+        width: 26px;
+        height: 26px;
+        border-radius: 50%;
+        background-color: white;
+        top: 4px;
+        left: 4px;
+        transition: all 0.3s ease;
+        }
+
+        .switch-kdk input[type="checkbox"]:checked + label {
+        background-color: #21f32f;
+        }
+
+        .switch-kdk input[type="checkbox"]:checked + label:before {
+        transform: translateX(26px);
+        }
+
+        .switch-kdk label:after {
+        content: "";
+        position: absolute;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0);
+        top: 9px;
+        left: 9px;
+        transition: all 0.3s ease;
+        }
+
+        .switch-kdk input[type="checkbox"]:checked + label:after {
+        background-color: #ffffff00;
+        }
+
+        .questions {
+        background-color: #f5f5f5;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        margin: 20px auto;
+        max-width: 800px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .text-box {
+        display: block;
+        width: 80%;
+        height: 40px;
+        padding: 10px;
+        margin: 20px auto;
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        background-color: #f5f5f5;
+        font-size: 16px;
+        color: #333;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-button {
+        display: block;
+        width: 200px;
+        height: 40px;
+        margin: 20px auto;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        background-color: #007bff;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .submit-button:hover {
+        background-color: #0069d9;
+        transition: all 0.3s ease;
+        }
+
+        .submit-button:active {
+        background-color: #07509f;
+        transition: all 0.1s ease;
+        }
+
+    
+    </style>
+</head>
+<body>
+    <h2 id="human">Muž, 69 let</h2>
+    <div class="questions">
+        <div>
+            <h2>Pohlaví</h2>
+            <div class="switch">
+                <input type="checkbox" id="switch" onchange="change_gender()"/>
+                <label for="switch"></label>
+            </div>
+        </div>
+        <br>
+        <div>
+            <h2>Věk</h2>
+            <div class="slider">
+                <input type="range" min="0" max="100" value="50" class="slider-range" id="age" oninput="change_age()">
+            </div>
+        </div>
+        <br>
+        <div>
+            <h2>Věděl nebo ne?</h2>
+            <div class="switch-kdk">
+                <input type="checkbox" id="switch-kdk" />
+                <label for="switch-kdk"></label>
+            </div>  
+        </div>
+        <div>
+            <h2>Dodatečná poznámka</h2>
+            <input type="text" class="text-box" id="add_note" placeholder="Dodatečná poznámka">
+        </div>
+        <div>
+            <button class="submit-button" onclick="submit()">Odeslat</button>
+        </div>  
+    </div>
+    <a onclick="get_data()">Download</a>
+</body>
+<script>
+    data=""
+    function change_age(){
+        human_text = document.getElementById("human").innerHTML
+        console.log(human_text)
+        human_text = human_text.split(" ")
+        human_text[1] = document.getElementById("age").value
+        console.log(human_text)
+        human_text = human_text[0] + " " + human_text[1] + " let"
+        document.getElementById("human").innerHTML = human_text
+    }
+    function change_gender(){
+        human_text = document.getElementById("human").innerHTML
+        human_text = human_text.split(" ")
+        let fom = document.getElementById("switch").checked
+        console.log(fom)
+        if (!fom) {
+            human_text[0] = "Žena,"
+        }else{
+            human_text[0] = "Muž,"
+        }
+        human_text = human_text[0] + " " + human_text[1] + " let"
+        document.getElementById("human").innerHTML = human_text
+    }
+
+    function submit(){
+        let age = document.getElementById("age").value
+        let fom = document.getElementById("switch").checked
+        let kdk = document.getElementById("switch-kdk").checked
+        let add_note = document.getElementById("add_note").value
+
+        if (!fom){
+            text = "zena, "
+        }else{
+            text = "muz, "
+        }
+
+        text = text + age + ", "
+        
+        if (kdk){
+            text = text + "vedel/a, "
+        }else{
+            text = text + "nevedel/a, "
+        }
+
+        text = text + add_note
+
+        document.getElementById("add_note").value=""
+
+        data = data + text + "\n"
+        console.log(data)
+    }
+
+    function get_data(){
+        const blob = new Blob([data], {type: "text/plain"});
+
+        // Create an anchor element with a download attribute and set its href to the URL of the Blob object
+        const anchor = document.createElement("a");
+        anchor.download = "data.txt";
+        anchor.href = URL.createObjectURL(blob);
+
+        // Programmatically click the anchor element to initiate the download
+        anchor.click();
+    }
+
+    window.addEventListener('beforeunload', function(e) {
+    get_data()
+    });
+
+
+</script>
