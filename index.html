@@ -332,6 +332,10 @@
 
     function get_data(){
         const blob = new Blob([data], {type: "text/plain"});
+        
+        if (data==""){
+            return
+        }
 
         // Create an anchor element with a download attribute and set its href to the URL of the Blob object
         const anchor = document.createElement("a");
